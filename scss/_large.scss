@@ -4,3 +4,28 @@ header, nav, main {
 }
 
 /* NAVIGATION STUFF GOES HERE  */
+#hamburgerBtn{
+    display: none;
+}
+.moveOver>.content{
+    transform: translateX(0px);
+}
+nav{
+    background-color: transparent;
+    position: static;
+    transform: translateX(0);
+    width: auto;
+    ul{
+        display: flex;
+        margin-left: $gutter;
+       // border-left: 1px solid rgba(0,0,0,0.2);
+    }//end ul
+    ul li a {
+        padding: .6rem 1.5rem;
+        border: none;
+        //border-right: 1px solid rgba(0,0,0,0.2);
+    }//end nav
+#navWrapper{
+    background-color: #f7f7f7;
+}
+}

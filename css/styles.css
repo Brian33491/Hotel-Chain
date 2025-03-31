@@ -375,7 +375,7 @@ nav ul li a {
   color: #1d295f;
 }
 nav ul li a:hover {
-  background-color: #7c1d47;
+  background-color: rgb(124, 202, 226);
 }
 nav li.active a {
   color: #7c1d47;
@@ -433,4 +433,27 @@ footer a {
     margin: auto;
   }
   /* NAVIGATION STUFF GOES HERE  */
+  #hamburgerBtn {
+    display: none;
+  }
+  .moveOver > .content {
+    transform: translateX(0px);
+  }
+  nav {
+    background-color: transparent;
+    position: static;
+    transform: translateX(0);
+    width: auto;
+  }
+  nav ul {
+    display: flex;
+    margin-left: 10px;
+  }
+  nav ul li a {
+    padding: 0.6rem 1.5rem;
+    border: none;
+  }
+  nav #navWrapper {
+    background-color: #f7f7f7;
+  }
 }
