@@ -390,6 +390,11 @@ nav li.active a {
   transition: transform 500ms ease;
 }
 
+#pageWrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+
 /* --------------------------- MAIN --------------------------- */
 main h1 {
   padding: 1rem 10px 0.5rem 10px;
