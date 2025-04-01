@@ -118,7 +118,7 @@ main {
     }
 }// end main
 
-/* Horizontal Hotel Cards - Perfect for 450×310 Images */
+
 .hotels-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -130,13 +130,13 @@ main {
   
   .hotel-card {
     display: grid;
-    grid-template-columns: 180px 1fr; /* Image width matches your aspect ratio */
+    grid-template-columns: 180px 1fr; 
     border: 1px solid #e1e1e1;
     border-radius: 8px;
     overflow: hidden;
     background: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    height: 140px; /* 180/1.45 ≈ 124 to match 450×310 ratio */
+    height: 140px; 
     transition: all 0.2s ease;
   }
   
@@ -147,7 +147,7 @@ main {
     object-position: center;
   }
   
-/* Adjusted layout for new order */
+
 .hotel-info {
     display: flex;
     flex-direction: column;
@@ -156,19 +156,18 @@ main {
   
   .hotel-info h2 {
     margin: 0 0 0.25rem 0;
-    order: 1; /* Name stays at top */
+    order: 1; 
   }
   
   .hotel-info address {
-    order: 2; /* Address comes next */
+    order: 2; 
     margin: 0.25rem 0;
   }
   
   .call-btn {
-    order: 3; /* Button moves to bottom */
-    align-self: flex-start; /* Left-align button */
+    order: 3; 
+    align-self: flex-start; 
     margin-top: 0.5rem;
-    /* Keep existing button styles */
     background: #0066cc;
     color: white;
     padding: 8px 16px;
@@ -179,9 +178,9 @@ main {
   }
 
   .hotel-card:hover {
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transform: translateY(-2px); /* Slight lift */
-    border-color: #0066cc; /* Blue border highlight */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
+    transform: translateY(-2px); 
+    border-color: #0066cc; 
   }
 
 
