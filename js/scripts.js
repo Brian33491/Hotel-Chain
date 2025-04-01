@@ -5,6 +5,14 @@ hb.addEventListener('click', () => {
     pw.classList.toggle('moveOver');
 });
 
+fetch('data/hotels.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return response.json();
+  })
+  .then(data => console.log("Loaded data:", data))
+  .catch(error => console.error("Error loading JSON:", error));
+  
 // Hotel data display functionality
 async function loadHotels() {
     try {
