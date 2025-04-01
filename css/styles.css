@@ -427,6 +427,7 @@ main p {
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   height: 140px; /* 180/1.45 ≈ 124 to match 450×310 ratio */
+  transition: all 0.2s ease;
 }
 
 .hotel-card img {
@@ -467,6 +468,12 @@ main p {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
+}
+
+.hotel-card:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transform: translateY(-2px); /* Slight lift */
+  border-color: #0066cc; /* Blue border highlight */
 }
 
 /* --------------------------- FOOTER --------------------------- */
