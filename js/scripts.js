@@ -1,5 +1,7 @@
+document.addEventListener('DOMContentLoaded', loadHotels);
 const hb = document.querySelector('#hamburgerBtn');
 const pw = document.querySelector('#pageWrapper');
+
 
 hb.addEventListener('click', () => {
     pw.classList.toggle('moveOver');
@@ -12,7 +14,7 @@ fetch('data/hotels.json')
   })
   .then(data => console.log("Loaded data:", data))
   .catch(error => console.error("Error loading JSON:", error));
-  
+
 // Hotel data display functionality
 async function loadHotels() {
     try {
@@ -47,4 +49,4 @@ function displayHotels(hotels) {
   }
 
 // Load hotels when DOM is ready
-document.addEventListener('DOMContentLoaded', loadHotels);
+
