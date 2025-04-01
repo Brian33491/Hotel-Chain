@@ -408,6 +408,7 @@ main p {
   line-height: 150%;
 }
 
+/* (Previous CSS remains the same until .hotels-grid) */
 .hotels-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -447,11 +448,14 @@ main p {
 .hotel-info h2 {
   margin: 0 0 0.25rem 0;
   order: 1;
+  font-size: 1.1rem; /* Base font size */
 }
 
 .hotel-info address {
   order: 2;
   margin: 0.25rem 0;
+  font-size: 0.85rem; /* Base font size */
+  word-break: break-word; /* Prevent overflow */
 }
 
 .call-btn {
@@ -465,6 +469,8 @@ main p {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
+  font-size: 0.85rem; /* Base font size */
+  white-space: nowrap; /* Prevent button text break */
 }
 
 .hotel-card:hover {
@@ -473,6 +479,39 @@ main p {
   border-color: #0066cc;
 }
 
+/* ----- MOBILE OPTIMIZATIONS ----- */
+@media (max-width: 480px) {
+  .hotel-card {
+    grid-template-columns: 120px 1fr; /* Narrower image column */
+    height: auto; /* Flexible height */
+    min-height: 120px; /* Minimum height */
+  }
+  .hotel-info {
+    padding: 0.75rem;
+  }
+  .hotel-info h2 {
+    font-size: 1rem; /* Smaller heading */
+  }
+  .hotel-info address {
+    font-size: 0.8rem; /* Smaller text */
+  }
+  .call-btn {
+    padding: 6px 12px; /* Smaller button */
+    font-size: 0.8rem;
+  }
+}
+/* Extra small devices (iPhone SE) */
+@media (max-width: 375px) {
+  .hotel-card {
+    grid-template-columns: 100px 1fr; /* Even narrower image */
+  }
+  .hotel-info {
+    padding: 0.5rem;
+  }
+  .call-btn {
+    padding: 5px 10px;
+  }
+}
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
   background-color: #1d295f;
