@@ -408,53 +408,66 @@ main p {
   line-height: 150%;
 }
 
+/* Horizontal Hotel Cards - Perfect for 450×310 Images */
 .hotels-grid {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
   padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hotel-card {
+  display: grid;
+  grid-template-columns: 180px 1fr; /* Image width matches your aspect ratio */
   border: 1px solid #e1e1e1;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hotel-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  height: 124px; /* 180/1.45 ≈ 124 to match 450×310 ratio */
 }
 
 .hotel-card img {
-  width: 100%;
-  height: auto; /* Fixed height */
-  -o-object-fit: cover;
-     object-fit: cover; /* Ensures images fill container without distortion */
-  -o-object-position: center;
-     object-position: center; /* Centers the image focus */
-  display: block; /* Removes extra space under image */
+  width: 180px;
+  height: 124px;
+  -o-object-fit: contain;
+     object-fit: contain; /* Shows full image */
+  -o-object-position: left center;
+     object-position: left center;
+  background: #f8f8f8; /* Neutral background for transparent images */
 }
 
+/* Adjusted layout for new order */
 .hotel-info {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .hotel-info h2 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.hotel-info .phone {
-  color: #666;
-  margin: 0.5rem 0;
+  margin: 0 0 0.25rem 0;
+  order: 1; /* Name stays at top */
 }
 
 .hotel-info address {
-  font-style: normal;
-  color: #555;
-  line-height: 1.5;
+  order: 2; /* Address comes next */
+  margin: 0.25rem 0;
+}
+
+.call-btn {
+  order: 3; /* Button moves to bottom */
+  align-self: flex-start; /* Left-align button */
+  margin-top: 0.5rem;
+  /* Keep existing button styles */
+  background: #0066cc;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 /* --------------------------- FOOTER --------------------------- */

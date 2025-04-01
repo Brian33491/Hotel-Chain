@@ -17,30 +17,26 @@ async function loadHotels() {
 }
 
 function displayHotels(hotels) {
-    const main = document.querySelector('main');
-    
-    // Create a container for hotels
-    const hotelsContainer = document.createElement('div');
-    hotelsContainer.className = 'hotels-grid';
+    const container = document.querySelector('.hotels-grid');
     
     hotels.forEach(hotel => {
-        const hotelCard = document.createElement('div');
-        hotelCard.className = 'hotel-card';
-        
-        hotelCard.innerHTML = `
-            <img src="${hotel.image}" alt="${hotel.name}" loading="lazy">
-            <div class="hotel-info">
-                <h2>${hotel.name}</h2>
-                <p class="phone">${hotel.phone}</p>
-                <address>${hotel.address.join('<br>')}</address>
-            </div>
-        `;
-        
-        hotelsContainer.appendChild(hotelCard);
+      const card = document.createElement('div');
+      card.className = 'hotel-card';
+      
+      const cleanPhone = hotel.phone.replace(/[^\d+]/g, '');
+      
+      card.innerHTML = `
+        <img src="${hotel.image}" alt="${hotel.name}">
+        <div class="hotel-info">
+          <h2>${hotel.name}</h2>
+          <address>${hotel.address}</address>
+          <a href="tel:${cleanPhone}" class="call-btn"> ${hotel.phone}</a>
+        </div>
+      `;
+      
+      container.appendChild(card);
     });
-    
-    main.appendChild(hotelsContainer);
-}
+  }
 
 // Load hotels when DOM is ready
 document.addEventListener('DOMContentLoaded', loadHotels);
