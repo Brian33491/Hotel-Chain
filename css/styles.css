@@ -408,7 +408,6 @@ main p {
   line-height: 150%;
 }
 
-/* ===== MAIN GRID CONTAINER ===== */
 .hotels-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -418,10 +417,9 @@ main p {
   margin: 0 auto;
 }
 
-/* ===== CARD LAYOUT ===== */
 .hotel-card {
   display: grid;
-  grid-template-columns: 30% 1fr; /* Percentage-based image column */
+  grid-template-columns: 30% 1fr;
   grid-template-rows: auto auto 1fr;
   grid-template-areas: "image name" "image address" "image phone";
   border: 1px solid #e1e1e1;
@@ -429,11 +427,10 @@ main p {
   overflow: hidden;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  min-height: 150px; /* Flexible minimum height */
+  min-height: 150px;
   transition: all 0.3s ease;
 }
 
-/* ===== GRID AREAS ===== */
 .hotel-card img {
   grid-area: image;
   width: 100%;
@@ -445,31 +442,16 @@ main p {
 .hotel-info h2 {
   grid-area: name;
   margin: 1rem 1rem 0.5rem 1rem;
-  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+  font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 .hotel-info address {
   grid-area: address;
-  margin: 0 1rem 0.8rem 1rem; /* Increased bottom margin from 0.5rem to 0.8rem */
+  margin: 0 1rem 0.8rem 1rem;
   font-size: clamp(0.8rem, 2.5vw, 0.9rem);
   line-height: 1.4;
   color: #555;
-  padding-bottom: 0.3rem; /* Extra spacing insurance */
-}
-
-.call-btn {
-  grid-area: phone;
-  margin: 0.5rem 1rem 1rem 1rem; /* Added 0.5rem top margin */
-  align-self: start;
-  background: #0066cc;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
-  width: -moz-max-content;
-  width: max-content;
+  padding-bottom: 0.3rem;
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
