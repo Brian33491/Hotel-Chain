@@ -1,52 +1,56 @@
-document.addEventListener('DOMContentLoaded', loadHotels);
+// Hamburger menu functionality
 const hb = document.querySelector('#hamburgerBtn');
 const pw = document.querySelector('#pageWrapper');
-
 
 hb.addEventListener('click', () => {
     pw.classList.toggle('moveOver');
 });
 
-fetch('data/hotels.json')
-  .then(response => {
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    return response.json();
-  })
-  .then(data => console.log("Loaded data:", data))
-  .catch(error => console.error("Error loading JSON:", error));
-
 // Hotel data display functionality
 async function loadHotels() {
     try {
-        const response = await fetch('../data/hotels.json'); // Adjust path as needed
-        const hotels = await response.json();
+        // Use the correct path for GitHub Pages
+        const response = await fetch('/Hotel-Chain/data/hotels.json');
+        
+        // Verify we got JSON and not an HTML error page
+        const responseText = await response.text();
+        if (responseText.startsWith('<!DOCTYPE')) {
+            throw new Error('Server returned HTML instead of JSON');
+        }
+        
+        const hotels = JSON.parse(responseText);
         displayHotels(hotels);
+        
     } catch (error) {
         console.error("Error loading hotels:", error);
+        // Show error message to users
+        const container = document.querySelector('.hotels-grid');
+        container.innerHTML = '<p class="error">Could not load hotel data. Please try again later.</p>';
     }
 }
 
 function displayHotels(hotels) {
     const container = document.querySelector('.hotels-grid');
+    container.innerHTML = ''; // Clear any existing content
     
     hotels.forEach(hotel => {
-      const card = document.createElement('div');
-      card.className = 'hotel-card';
-      
-      const cleanPhone = hotel.phone.replace(/[^\d+]/g, '');
-      
-      card.innerHTML = `
-        <img src="${hotel.image}" alt="${hotel.name}">
-        <div class="hotel-info">
-          <h2>${hotel.name}</h2>
-          <address>${hotel.address}</address>
-          <a href="tel:${cleanPhone}" class="call-btn"> ${hotel.phone}</a>
-        </div>
-      `;
-      
-      container.appendChild(card);
+        const card = document.createElement('div');
+        card.className = 'hotel-card';
+        
+        const cleanPhone = hotel.phone.replace(/[^\d+]/g, '');
+        
+        card.innerHTML = `
+            <img src="${hotel.image}" alt="${hotel.name}">
+            <div class="hotel-info">
+                <h2>${hotel.name}</h2>
+                <address>${hotel.address}</address>
+                <a href="tel:${cleanPhone}" class="call-btn">${hotel.phone}</a>
+            </div>
+        `;
+        
+        container.appendChild(card);
     });
-  }
+}
 
-// Load hotels when DOM is ready
-
+// Load hotels when the page is ready
+document.addEventListener('DOMContentLoaded', loadHotels);
