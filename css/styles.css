@@ -408,6 +408,55 @@ main p {
   line-height: 150%;
 }
 
+.hotels-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.hotel-card {
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-card img {
+  width: 100%;
+  height: auto; /* Fixed height */
+  -o-object-fit: cover;
+     object-fit: cover; /* Ensures images fill container without distortion */
+  -o-object-position: center;
+     object-position: center; /* Centers the image focus */
+  display: block; /* Removes extra space under image */
+}
+
+.hotel-info {
+  padding: 1.5rem;
+}
+
+.hotel-info h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.hotel-info .phone {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.hotel-info address {
+  font-style: normal;
+  color: #555;
+  line-height: 1.5;
+}
+
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
   background-color: #1d295f;
@@ -427,12 +476,24 @@ footer a {
 @media only screen and (min-width: 35rem) {
   /* NAVIGATION STUFF GOES HERE  */
 }
+@media only screen and (min-width: 35rem) and (min-width: 60rem) {
+  .hotels-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (min-width: 64rem) {
+  /* NAVIGATION STUFF GOES HERE  */
+}
+@media only screen and (min-width: 64rem) and (min-width: 1024px) {
+  .hotels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media only screen and (min-width: 64rem) {
   header, nav, main {
     max-width: 960px;
     margin: auto;
   }
-  /* NAVIGATION STUFF GOES HERE  */
   #hamburgerBtn {
     display: none;
   }

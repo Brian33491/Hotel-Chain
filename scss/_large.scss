@@ -1,3 +1,9 @@
+@media (min-width: 1024px) {
+    .hotels-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
 header, nav, main {
     max-width: 960px;
     margin: auto;

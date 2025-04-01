@@ -70,23 +70,6 @@
         "246 Pine Hill Rd.",
         "Greenwood, Grove 66789"
       ]
-    },
-    {
-      "image": "images/hotel9.webp",
-      "name": "Lakeside Resort",
-      "phone": "+1-555-901-2345",
-      "address": [
-        "369 Lakeview Dr.",
-        "Lakeside, Shore 77890"
-      ]
-    },
-    {
-      "image": "images/hotel10.webp",
-      "name": "Parkside Hotel",
-      "phone": "+1-555-012-3456",
-      "address": [
-        "432 Park Ave.",
-        "Parktown, Green 88901"
-      ]
     }
+    
   ]
