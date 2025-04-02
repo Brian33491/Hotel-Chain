@@ -1,12 +1,50 @@
 /* NAVIGATION STUFF GOES HERE  */
 
-#hotels-grid{
-    section{
-        
-        grid-template-areas: 
-        "image name"  
+/* Medium screens (typically 600px-899px) */
+#hotels-grid {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    grid-template-columns: minmax(350px, 400px); /* Fixed card width */
+    justify-content: center;
+  
+    section {
+      display: grid;
+      grid-template-areas: 
+        "image name"
         "image address"
         "image phone";
-    }
+      grid-template-columns: 150px 1fr; /* Image column + content column */
+      gap: 15px;
+      width: 100%;
+      border: 1px solid #eee;
+      padding: 15px;
+      border-radius: 8px;
+      background: #fff;
   
-}//end of hotels grid
+      img {
+        grid-area: image;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 4px;
+        align-self: center;
+      }
+  
+      h2 { 
+        grid-area: name;
+        margin: 0;
+        align-self: end; /* Better alignment */
+      }
+  
+      h3 {
+        grid-area: address;
+        margin: 0;
+      }
+  
+      p {
+        grid-area: phone;
+        margin: 0;
+      }
+    }
+  }

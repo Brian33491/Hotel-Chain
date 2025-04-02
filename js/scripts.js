@@ -30,6 +30,11 @@ hotelplaces.forEach(hotel => {
     const thePhone = document.createElement("p");
     thePhone.textContent = hotel.phone;
 
+    thePhone.addEventListener('click', () => {
+        window.location.href = `tel:${hotel.phone.replace(/[^\d+]/g, '')}`;
+    });
+    thePhone.style.cursor = 'pointer';
+
     // Append all elements to the section
     hotelSection.appendChild(theImage);
     hotelSection.appendChild(theName);

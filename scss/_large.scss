@@ -1,8 +1,4 @@
-@media (min-width: 1024px) {
-    .hotels-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+
 
 header, nav, main {
     max-width: 960px;
@@ -35,3 +31,8 @@ nav{
     background-color: #f7f7f7;
 }
 }
+
+#hotels-grid{
+   display: grid;
+    grid-template-columns: 1fr 1fr;
+}//end of hotels grid
