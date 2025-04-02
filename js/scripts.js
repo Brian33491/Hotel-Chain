@@ -7,20 +7,18 @@ hb.addEventListener('click', () => {
 });
 
 import { hotelplaces } from '../data/hotels.js';
-console.log(hotelplaces);
-const cards = document.querySelector('#hotels-grid'); // Added # for ID selector
+const cards = document.querySelector('#hotels-grid');
 
 hotelplaces.forEach(hotel => {
-    // Create a container for each hotel card
-    const card = document.createElement("div");
-    card.className = "hotel-card"; // Add a class for styling
+    // Create a <section> instead of a div (to match your CSS)
+    const hotelSection = document.createElement("section");
     
-    // Create and add the image
+    // Create and add the image (will use grid-area: name)
     const theImage = document.createElement("img");
-    theImage.src = hotel.image; // Changed from hotel.photo to hotel.image
+    theImage.src = hotel.image;
     theImage.alt = hotel.name;
     
-    // Create and add the name
+    // Create and add the name (will also use grid-area: name)
     const theName = document.createElement("h2");
     theName.textContent = hotel.name;
 
@@ -32,12 +30,12 @@ hotelplaces.forEach(hotel => {
     const thePhone = document.createElement("p");
     thePhone.textContent = hotel.phone;
 
-    // Append all elements to the card
-    card.appendChild(theImage);
-    card.appendChild(theName);
-    card.appendChild(theAddress);
-    card.appendChild(thePhone);
+    // Append all elements to the section
+    hotelSection.appendChild(theImage);
+    hotelSection.appendChild(theName);
+    hotelSection.appendChild(theAddress);
+    hotelSection.appendChild(thePhone);
     
-    // Append the card to the grid
-    cards.appendChild(card);
+    // Append the section to the grid
+    cards.appendChild(hotelSection);
 });

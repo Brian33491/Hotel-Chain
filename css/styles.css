@@ -408,6 +408,23 @@ main p {
   line-height: 150%;
 }
 
+#hotels-grid section {
+  display: grid;
+  grid-template-areas: "image" "name" "address" "phone";
+}
+#hotels-grid img {
+  grid-area: image;
+}
+#hotels-grid h2 {
+  grid-area: name;
+}
+#hotels-grid h3 {
+  grid-area: address;
+}
+#hotels-grid p {
+  grid-area: phone;
+}
+
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
   background-color: #1d295f;

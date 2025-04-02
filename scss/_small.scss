@@ -108,7 +108,20 @@ main {
     }
 }// end main
 
-
+#hotels-grid{
+    section{
+        display: grid;
+        grid-template-areas: 
+        "image" 
+        "name" 
+        "address"
+        "phone";
+    }
+    img{grid-area: image;}
+    h2{grid-area: name;}
+    h3{grid-area: address;}
+    p{grid-area: phone;}
+}//end of hotels grid
 
 
 /* --------------------------- FOOTER --------------------------- */
