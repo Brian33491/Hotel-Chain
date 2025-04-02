@@ -10,7 +10,7 @@ hb.addEventListener('click', () => {
 async function loadHotels() {
     try {
         // Use the correct path for GitHub Pages
-        const response = await fetch('/data/hotels.json');
+        const response = await fetch('/Hotel-Chain/data/hotels.json');
         
         // Verify we got JSON and not an HTML error page
         const responseText = await response.text();
