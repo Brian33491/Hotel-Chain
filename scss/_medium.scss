@@ -1,6 +1,12 @@
 /* NAVIGATION STUFF GOES HERE  */
-@media (min-width: 60rem) {
-    .hotels-grid {
-        grid-template-columns: repeat(1, 1fr);
+
+#hotels-grid{
+    section{
+        
+        grid-template-areas: 
+        "image name"  
+        "image address"
+        "image phone";
     }
-}
+  
+}//end of hotels grid

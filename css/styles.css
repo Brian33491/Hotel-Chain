@@ -443,10 +443,8 @@ footer a {
 
 @media only screen and (min-width: 35rem) {
   /* NAVIGATION STUFF GOES HERE  */
-}
-@media only screen and (min-width: 35rem) and (min-width: 60rem) {
-  .hotels-grid {
-    grid-template-columns: repeat(1, 1fr);
+  #hotels-grid section {
+    grid-template-areas: "image name" "image address" "image phone";
   }
 }
 @media only screen and (min-width: 64rem) {
