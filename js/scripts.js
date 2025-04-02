@@ -6,51 +6,38 @@ hb.addEventListener('click', () => {
     pw.classList.toggle('moveOver');
 });
 
-// Hotel data display functionality
-async function loadHotels() {
-    try {
-        // Use the correct path for GitHub Pages
-        const response = await fetch('/Hotel-Chain/data/hotels.json');
-        
-        // Verify we got JSON and not an HTML error page
-        const responseText = await response.text();
-        if (responseText.startsWith('<!DOCTYPE')) {
-            throw new Error('Server returned HTML instead of JSON');
-        }
-        
-        const hotels = JSON.parse(responseText);
-        displayHotels(hotels);
-        
-    } catch (error) {
-        console.error("Error loading hotels:", error);
-        // Show error message to users
-        const container = document.querySelector('.hotels-grid');
-        container.innerHTML = '<p class="error">Could not load hotel data. Please try again later.</p>';
-    }
-}
+import { hotelplaces } from '../data/hotels.js';
+console.log(hotelplaces);
+const cards = document.querySelector('#hotels-grid'); // Added # for ID selector
 
-function displayHotels(hotels) {
-    const container = document.querySelector('.hotels-grid');
-    container.innerHTML = ''; // Clear any existing content
+hotelplaces.forEach(hotel => {
+    // Create a container for each hotel card
+    const card = document.createElement("div");
+    card.className = "hotel-card"; // Add a class for styling
     
-    hotels.forEach(hotel => {
-        const card = document.createElement('div');
-        card.className = 'hotel-card';
-        
-        const cleanPhone = hotel.phone.replace(/[^\d+]/g, '');
-        
-        card.innerHTML = `
-            <img src="${hotel.image}" alt="${hotel.name}">
-            <div class="hotel-info">
-                <h2>${hotel.name}</h2>
-                <address>${hotel.address}</address>
-                <a href="tel:${cleanPhone}" class="call-btn">${hotel.phone}</a>
-            </div>
-        `;
-        
-        container.appendChild(card);
-    });
-}
+    // Create and add the image
+    const theImage = document.createElement("img");
+    theImage.src = hotel.image; // Changed from hotel.photo to hotel.image
+    theImage.alt = hotel.name;
+    
+    // Create and add the name
+    const theName = document.createElement("h2");
+    theName.textContent = hotel.name;
 
-// Load hotels when the page is ready
-document.addEventListener('DOMContentLoaded', loadHotels);
+    // Create and add the address
+    const theAddress = document.createElement("h3");
+    theAddress.textContent = hotel.address;
+
+    // Create and add the phone
+    const thePhone = document.createElement("p");
+    thePhone.textContent = hotel.phone;
+
+    // Append all elements to the card
+    card.appendChild(theImage);
+    card.appendChild(theName);
+    card.appendChild(theAddress);
+    card.appendChild(thePhone);
+    
+    // Append the card to the grid
+    cards.appendChild(card);
+});

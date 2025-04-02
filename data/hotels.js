@@ -1,4 +1,5 @@
-[
+
+export const hotelplaces = [
     {
       "image": "images/hotel1.webp",
       "name": "The Grand Plaza",
